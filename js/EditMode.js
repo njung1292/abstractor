@@ -12,8 +12,7 @@ var DriversStreetView = function(config) {
 EditMode.prototype.init = function() {
 	// this.initBlah();
 	window.EditMode = this;
-	var otherThis = window.driversStreetView;
-	var currentPano = this.panorama;
+	var otherThis = window.EditMode;
 
 	// var putReq = this.putDiagram(id, code);
 
