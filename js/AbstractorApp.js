@@ -195,6 +195,19 @@ AbstractorApp.prototype.initStage = function() {
 
 }
 
+var blue = 388e9e;
+var red = dc423c;
+var yellow = eecb25;
+var purple = 7d2a44;
+var gray = 515151;
+color_array = [red, yellow, gray, blue, purple];
+
+Box.prototype.color = function() {
+    this.color = color_array[(this.level mod 5)];
+}
+
+
+
 
 
 

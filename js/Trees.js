@@ -79,7 +79,8 @@ var Tree = function(treeID) {
 var Box = function(boxLevel) {
 	this.id;
 	this.level = boxLevel; //should always be lower than box above
-	this.text = "";
+	this.text = ""; //raw text
+	this.parsed= ""; //parsed text
 	this.phrases = new Array();
 	this.links = new Array();
 	this.tangent = null; //if non-null, references a Link	

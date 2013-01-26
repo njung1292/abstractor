@@ -1,5 +1,5 @@
 //Constants//
-var open = 0;
+var open = -1;
 var closed = 1;
 
 var ViewMode = function(config) {
@@ -15,16 +15,24 @@ var ViewMode = function(config) {
 Box.clicked = closed;
 
 //Expand or collapse on click//
-function exp_collapse(){
-	Box.child_array = this.get_array();
-	for (var i = 0; i<Box.child_array.length; i++){
-		var id = Box.child_array[i].get_id(); //get the ID for the child box//
-		$("#"+id).click(function(){ 
-			if (Box.clicked == closed) $(this).slideDown("slow");
-			else $(this).slideUp("slow");
+Box.prototype.exp_collapse = function(){
+	var children = this.get_array();
+	for (var i = 0; i<children.boxes.length; i++){
+		var id = children.boxes[i].get_id(); //get the ID for the child box//
+		var link_id = children.links[i].get_link_id();
+		var thisBox = this;
+		$("#"+id).click(function(){
+			if (thisBox.clicked == closed) {
+				$(this).slideDown("slow");
+				$("#"+link_id).fadeOut(500);
+			}
+			else {
+				$(this).slideUp("slow");
+				$("#"+link_id).fadeIn(500);
+			}
 		});
 	}
-	Box.clicked = -Box.clicked;
+	this.clicked = -this.clicked; //toggle back//
 }
 
 
