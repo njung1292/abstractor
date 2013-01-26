@@ -5,14 +5,15 @@ body {
 	position: relative;
 }
 
-#blah {
-	width: 20px;
-	height: 200px;
-	position: absolute;
-	bottom: 0px;
+#create_box {
+	width: 200px;
+	height: 100px;
+	background-color: #000;
+	position: fixed;
+	bottom: 50%;
 	left: 50%;
-	background-color: red;
 }
+
 #content {
 	/*background-color: #bbd39f;*/
 	background-color: #fff;
