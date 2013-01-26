@@ -1,3 +1,7 @@
+//Constants//
+var open = 0;
+var closed = 1;
+
 var ViewMode = function(config) {
 	this.deleteAllDiagrams = config.deleteAllDiagrams;
 	this.deleteDiagram = config.deleteDiagram;
@@ -8,26 +12,19 @@ var ViewMode = function(config) {
 }
 
 //Toggle if the box has been clicked
-var box_clicked = false;
+Box.clicked = closed;
 
 //Expand or collapse on click//
 function exp_collapse(){
-	if (box_clicked = false) {
-		box_clicked = true; //toggle
-		expand(parent_box);
-	else {
-		box_clicked= false; //toggle
-		collapse(parent_box);
+	Box.child_array = this.get_array();
+	for (var i = 0; i<Box.child_array.length; i++){
+		var id = Box.child_array[i].get_id(); //get the ID for the child box//
+		$("#"+id).click(function(){ 
+			if (Box.clicked == closed) $(this).slideDown("slow");
+			else $(this).slideUp("slow");
+		});
 	}
+	Box.clicked = -Box.clicked;
 }
 
-function expand(parent_box){
-	var child = get_child(parent_box);
-	//some CSS animation like "show child"//
-}
 
-function collapse(parent_box){
-	//requires: box_clicked = true;
-	var child = get_child(parent_box);
-	//some CSS animation like "hide child"//
-}
