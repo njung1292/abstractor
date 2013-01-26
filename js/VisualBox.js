@@ -5,6 +5,11 @@ var VisualBox = function(boxID, x, y, color, width, height, app) {
 	this.color = color;
 	this.width = width;
 	this.height = height;
+	// this.x1 = 0;
+	// this.x2 = 0;
+	// this.y1 = 0;
+	// this.y2 = 0;
+	// this.linkCount = 0;
 
 	this.initGraphics();
 	this.graphics(true, "blah");
@@ -53,6 +58,18 @@ VisualBox.prototype.events = function(app) {
 
 	console.log(this.id);
 	$("#"+vis.id).click(function(e) {
+
+		// if (app.editMode !== true && app.linkMode === true && vis.linkCount < 1 && $("#"+vis.id).get(0).tagName === 'DIV') {
+		// 	vis.x1 = vis.x;
+		// 	vis.y1 = $(window).height - vis.y;
+		// 	vis.linkCount +=0; 
+		// } else if (linkCount.length >= 1 && $("#"+vis.id).get(0).tagName === 'DIV') {
+		// 	vis.x2 = vis.x;
+		// 	vis.y2 = $(window).height - vis.y;
+		// 	$("#canvas").append(newLine(vis.x1,vis.y1,vis.x2,vis.y2,vis.id));
+		// 	vis.linkCount = 0;
+		// }	
+
 
 		console.log($("#"+vis.id).get(0).tagName);
 		if (app.editMode === true && $("#"+vis.id).get(0).tagName === 'DIV') {

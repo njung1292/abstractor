@@ -158,7 +158,7 @@ AbstractorApp.prototype.initStage = function() {
     this.height = 100;
     this.widthWhole = $(window).width();
     
-    $("#canvas").append(createLine(0,-1000,4000,200));
+    // $("#canvas").append(newLine(0,-1000,4000,200));
 
     $("#edit_mode_button").click(function() {
         createBox(app.NewTree,0,0,app.widthWhole,175,app);
@@ -176,18 +176,24 @@ AbstractorApp.prototype.initStage = function() {
         if (app.editMode) {
             app.editMode = false;
             $("#edit_text").html('<img src="icons/T_sidemenu.png">\
-            <span class="menu_text">Edit Text</span>')
+            <span class="menu_text">Edit Text</span>');
         } else {
             app.editMode = true;
             $("#edit_text").html('<img src="icons/T.png">\
-            <span class="menu_text">Edit Text</span>')
+            <span class="menu_text">Edit Text</span>');
         }
        
     });
 
     $("#new_link").click(function() {
         if (app.linkMode) {
-            app.
+            app.linkMode = false;
+            $("#new_link").html('<img src="icons/connect.png">\
+            <span class="menu_text">Edit Text</span>');
+        } else {
+            app.linkMode = true;
+            $("#new_link").html('<img src="icons/dotted_connect.png">\
+            <span class="menu_text">Edit Text</span>');
         }
     });
 

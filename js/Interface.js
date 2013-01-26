@@ -76,7 +76,7 @@ Box.prototype.exp_collapse = function(){
 
 
 /* NOTE: ADAPTED FROM http://gapjumper.com/research/lines.html */
-function createLine(x1, y1, x2, y2)
+function createLine(tree,x1, y1, x2, y2, id)
 	{
 		if (x2 < x1)
 		{
@@ -89,6 +89,7 @@ function createLine(x1, y1, x2, y2)
 		}
 		var line = document.createElement("div");
 		line.className = "line";
+		line.id = id;
 		var length = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 		line.style.width = length + "px";
 
@@ -99,11 +100,20 @@ function createLine(x1, y1, x2, y2)
 			line.style.left = x1 - 0.5*length*(1 - Math.cos(angle)) + "px";
 			line.style.MozTransform = line.style.WebkitTransform = line.style.OTransform= "rotate(" + angle + "rad)";
 	
-		return line;
+		
 	}
 
-var Line.prototype.newLine = function(x1,y1,x2,y2) {
-	$("#canvas").append(createLine(x1,y1,x2,y2));
+
+Line.prototype.newLine = function(tree,x1,y1,x2,y2,id) {
+	this.x1 = x1;
+	this.x2 = x2;
+	this.y1 = y1;
+	this.y2 = y2;
+	this.id = id;
+
+	// var link = tree.addLink()
+
+	$("#canvas").append(createLine(x1,y1,x2,y2,id));
 }
 
 
