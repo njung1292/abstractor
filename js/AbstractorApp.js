@@ -152,6 +152,7 @@ AbstractorApp.prototype.initStage = function() {
     var app = window.AbstractorApp;
 
 
+    this.perRow = 0;
     this.x = 50;
     this.y = 50 + $("#content").height();
     this.width = $(window).width()/5;
@@ -169,7 +170,14 @@ AbstractorApp.prototype.initStage = function() {
         $("#edit_text").html('<img src="icons/T.png">\
             <span class="menu_text">Edit Text</span>')
         createBox(app.NewTree, app.x, app.y, app.width, app.height, app);
-        app.x += 20 + app.width;
+        if (app.perRow < 3) {
+            app.x += 20 + app.width;
+            app.perRow += 1;
+        } else {
+            app.x = 50;
+            app.y += 50;
+            app.perRow = 0;
+        }
     });
 
     $("#edit_text").click(function() {
@@ -179,7 +187,7 @@ AbstractorApp.prototype.initStage = function() {
             <span class="menu_text">Edit Text</span>');
         } else {
             app.editMode = true;
-            $("#edit_text").html('<img src="icons/T.png">\
+            $("#edit_text").html('<img src="icons/pikachu.png">\
             <span class="menu_text">Edit Text</span>');
         }
        
@@ -189,11 +197,11 @@ AbstractorApp.prototype.initStage = function() {
         if (app.linkMode) {
             app.linkMode = false;
             $("#new_link").html('<img src="icons/connect.png">\
-            <span class="menu_text">Edit Text</span>');
+            <span class="menu_text">New Link</span>');
         } else {
             app.linkMode = true;
             $("#new_link").html('<img src="icons/dotted_connect.png">\
-            <span class="menu_text">Edit Text</span>');
+            <span class="menu_text">New Link</span>');
         }
     });
 
