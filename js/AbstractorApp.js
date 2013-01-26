@@ -5,6 +5,8 @@ var AbstractorApp = function(){
 AbstractorApp.prototype.setUp = function(){
     this.ajaxSetUp();
     this.initPages();
+    this.editMode = false;
+
 
 }
 
@@ -100,6 +102,7 @@ AbstractorApp.prototype.initPages = function() {
     this.initStage();
     this.initEditMode();
 
+
     $(".modes").hide();
     $("#splash").show();
     this.currentMode = "splash";
@@ -145,44 +148,33 @@ AbstractorApp.prototype.initStage = function() {
     window.AbstractorApp = this;
     var app = window.AbstractorApp;
 
-    this.stage = new Kinetic.Stage({
-      container: 'canvas',
-      width: $(window).width(), 
-      height: $(window).height() - 4 //this is a hack
-    });
 
-    /* when click on new box menu item, a box (abstract and graphic) is created */
-    // $("#new_box").click(function() {
-    //     createBox(app.NewTree, app.stage);
-    // });
-    this.rectID = 0;
     this.x = 50;
     this.y = 50 + $("#content").height();
+    this.width = $(window).width()/5;
+    this.height = 100;
+    
+
     $("#new_box").click(function() {
+        app.editMode = true;
+        $("#edit_text").html('<img src="icons/T.png">\
+            <span class="menu_text">Edit Text</span>')
+        createBox(app.NewTree, app.x, app.y, app.width, app.height, app);
+        app.x += 20 + app.width;
 
+    });
 
-
-        var color = "#"
-        $("#canvas").append("<textarea id='"+app.rectID+"' class='rectangle'></textarea>");
-        $("#"+app.rectID).css("left",app.x);
-        $("#"+app.rectID).css("bottom",app.y);
-        $("#"+app.rectID).css("width",app.stage.getWidth()/5);
-        $("#"+app.rectID).css("border-color","#dc423c");
-        app.rectID++;
-        app.x += 20 + app.stage.getWidth()/5;
-
-        // createBox(app.NewTree, app.stage, app.color);
-
-        // $("#"+app.rectID).append('<form class="box_text">'
-        //     +'<input type="text" name="box_text"'
-        //     +' id='+app.rectID+' class="active" value="" />'
-        //     +'<span class="box_text" id="bx=box_text>+</span></form>');
-        // $(".box_text > #"+app.rectID).css("width",100);
-
-
-        // $("#canvas").append("<div class='rectangle' id="+app.rectID+"></div>");
-        // $("#"+app.rectID).attr("width",app.stage.getWidth()/4);
-        // app.rectID++;
+    $("#edit_text").click(function() {
+        if (app.editMode) {
+            app.editMode = false;
+            $("#edit_text").html('<img src="icons/T_sidemenu.png">\
+            <span class="menu_text">Edit Text</span>')
+        } else {
+            app.editMode = true;
+            $("#edit_text").html('<img src="icons/T.png">\
+            <span class="menu_text">Edit Text</span>')
+        }
+       
     });
 
 
@@ -195,17 +187,15 @@ AbstractorApp.prototype.initStage = function() {
 
 }
 
-var blue = 388e9e;
-var red = dc423c;
-var yellow = eecb25;
-var purple = 7d2a44;
-var gray = 515151;
-color_array = [red, yellow, gray, blue, purple];
 
-Box.prototype.color = function() {
-    this.color = color_array[(this.level mod 5)];
-}
 
+        // var color = "#"
+        // $("#canvas").append("<textarea id='"+app.rectID+"' class='rectangle'></textarea>");
+        // $("#"+app.rectID).css("left",app.x);
+        // $("#"+app.rectID).css("bottom",app.y);
+        // $("#"+app.rectID).css("width",app.stage.getWidth()/5);
+        // $("#"+app.rectID).css("border-color","#dc423c");
+        // app.rectID++;
 
 
 

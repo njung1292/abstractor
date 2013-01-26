@@ -57,7 +57,8 @@ var Tree = function(treeID) {
 	this.addBox = function(boxLevel) {
 		var box = new Box(boxLevel);
 		this.boxes.push(box); //insert at end
-		this.box.id = this.topBox++;
+		box.id = this.topBox;
+		this.topBox++;
 		return box;
 	}
 	
@@ -77,7 +78,7 @@ var Tree = function(treeID) {
 
 /* Box: each node in the tree, containing phrases and being linked by Links */
 var Box = function(boxLevel) {
-	this.id;
+	this.id = 0;
 	this.level = boxLevel; //should always be lower than box above
 	this.text = ""; //raw text
 	this.parsed= ""; //parsed text
@@ -91,9 +92,9 @@ var Box = function(boxLevel) {
 		var link;
 		var parent;
 		var child;
-		var children { 
-			boxes:[] ,
-			links:[]
+		var children= { 
+			boxes: Array(),
+			links: Array()
 		};
 		for (var i = 0; i < this.links.length; i++) {
 			link = this.links[i];
@@ -111,7 +112,6 @@ var Box = function(boxLevel) {
 		return children;
 	}
 	
-	}
 }
 
 /* Phrase: an element inside a box (the parent) 
