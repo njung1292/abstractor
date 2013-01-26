@@ -16,19 +16,19 @@ Box.clicked = closed;
 
 //Expand or collapse on click//
 Box.prototype.exp_collapse = function(){
-	var child_array = this.get_array();
-	for (var i = 0; i<child_array.length; i++){
-		var abst_id = child_array[i].get_id(); //get the ID for the child box//
-		var link_id = child_array[i].get_link_id(); //get the ID for the link//
+	var children = this.get_array();
+	for (var i = 0; i<children.boxes.length; i++){
+		var id = children.boxes[i].get_id(); //get the ID for the child box//
+		var link_id = children.links[i].get_link_id();
 		var thisBox = this;
-		$("#"+abst_id).click(function(){
+		$("#"+id).click(function(){
 			if (thisBox.clicked == closed) {
-				$(this).slideDown("slow"); //expand the child box//
-				$("#"+link_id).fadeIn(500); //fade in the link//
+				$(this).slideDown("slow");
+				$("#"+link_id).fadeOut(500);
 			}
 			else {
-				$(this).slideUp("slow"); //collapse the child box//
-				$("#"+link_id).fadeOut(500); //fade out the link//
+				$(this).slideUp("slow");
+				$("#"+link_id).fadeIn(500);
 			}
 		});
 	}
