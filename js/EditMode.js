@@ -1,4 +1,4 @@
-var DriversStreetView = function(config) {
+var EditMode = function(config) {
 	this.deleteAllDiagrams = config.deleteAllDiagrams;
 	this.deleteDiagram = config.deleteDiagram;
 	this.getAllDiagrams = config.getAllDiagrams;
@@ -16,35 +16,40 @@ EditMode.prototype.init = function() {
 
 	// var putReq = this.putDiagram(id, code);
 
+	$("#submit").click(function(e) {
+		e.preventDefault();
+		var text = $("#editArea").val();
+		console.log(text);
+		var postReq = otherThis.postDiagram(text);
+	});
 
-	//shows all existing issues stored on server
+	$("#delete").click(function(e) {
+		e.preventDefault();
+		var deleteAllReq = otherThis.deleteAllDiagrams();
+	});
 
-	var diagramCode = "";
 
-	function retrieveDiagramCode(diagramCode) {
-
+	//shows all existing diagram codes in the database
+	function retrieveDiagramCode() {
 		var getAllReq = otherThis.getAllDiagrams();
 		getAllReq.success(function(allDiagramsData) {
-
-
 			var diagram_id;
 			var code;
-			var issueLat;
-			var issueLng;
-			var issueTitle;
-			var state;
-
 			for (var i = 0; i < allDiagramsData.length; i++) {
 
-				issue_id = allDiagramsData[i]._id;
-				code = allIssuesData[i].code;
-
-				diagramCode += code;
+				diagram_id = allDiagramsData[i]._id;
+				code = allDiagramsData[i].code;
+				console.log(code);
+				// diagramCode += code;
 			}
 		});
 	}
 
-	retrieveDiagramCode(diagramCode);
-	console.log(diagramCode);
+	retrieveDiagramCode();
 		
 }
+
+
+
+
+

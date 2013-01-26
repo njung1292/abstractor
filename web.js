@@ -21,12 +21,13 @@ mongoose.connect('mongodb://heroku_app11310500:o4jh1dki7if1b8cp8eq0j1vklh@ds0493
 var Schema = mongoose.Schema;
 
 var Diagram = new Schema({
+    code: {type:String, required:false}
     // status: {type:Number, required: false}, WILL IMPLEMENT THIS LATER
-    desc: {type:String, required: false},
-    hasLoc: {type:Boolean, required: false},
-    lat: {type:Number, required: false},
-    lng: {type:Number, required: false},
-    state: {type:String, required: false}
+    // desc: {type:String, required: false},
+    // hasLoc: {type:Boolean, required: false},
+    // lat: {type:Number, required: false},
+    // lng: {type:Number, required: false},
+    // state: {type:String, required: false}
 });
 
 var DiagramModel = mongoose.model('Diagram',Diagram);
