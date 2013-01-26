@@ -5,7 +5,7 @@ var TANGENT = 1;
 /* utility */
 /* Array.remove: removes a value*/
 Array.prototype.remove = function(value) {
-	val i = indexOf(value);
+	var i = indexOf(value);
 	if (i >= 0 && i < this.length) //in bound
 		this.splice(indexOf(value), 1);
 }

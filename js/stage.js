@@ -18,26 +18,30 @@ var layer = new Kinetic.Layer();
 //   layer.add(circle);
 // }
 
-var rect = new Kinetic.Rect({
-  x: 300,
-  y: 90,
-  width: 100,
-  height: 50,
-  fill: '#fff',
-  strokeWidth: 3,
-  offset: {
-    x: 50,
-    y: 25
-  },
-  draggable: true,
-  id: 'myRect',
-  name: 'I am a rectangle'
-});
+// var rect = new Kinetic.Rect({
+//   x: 300,
+//   y: 90,
+//   width: 100,
+//   height: 50,
+//   border
+//   fill: '#fff',
+//   strokeWidth: 3,
+//   offset: {
+//     x: 50,
+//     y: 25
+//   },
+//   draggable: true,
+//   id: 'myRect',
+//   name: 'I am a rectangle'
+// });
 
 layer.on('click', function(evt) {
         // get the shape that was clicked on
         var shape = evt.shape;
-        console.log(shape.getId());
+        // console.log(shape.getId());
+
+        
+
 });
 
 // $("myRect").click(function() {
@@ -45,7 +49,7 @@ layer.on('click', function(evt) {
 // });
 
 
-layer.add(rect);
+// layer.add(rect);
 stage.add(layer);
 
 // document.getElementById('activate').addEventListener('click', function() {

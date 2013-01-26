@@ -94,7 +94,7 @@ AbstractorApp.prototype.ajaxSetUp = function() {
 AbstractorApp.prototype.initPages = function() {
     window.AbstractorApp = this;
     var otherThis = window.AbstractorApp;
-
+    this.initTrees();
     this.initEditMode();
 
     /*
@@ -126,7 +126,7 @@ AbstractorApp.prototype.initPages = function() {
 
 
 AbstractorApp.prototype.initEditMode = function() {
-    this.EditMode= new EditMode ({
+    this.EditMode = new EditMode ({
                                 'deleteAllDiagrams': this.deleteAllDiagrams,
                                 'deleteDiagram': this.deleteDiagrams,
                                 'getAllDiagrams': this.getAllDiagrams,
@@ -137,6 +137,12 @@ AbstractorApp.prototype.initEditMode = function() {
     this.EditMode.init();
 }
 
+AbstractorApp.prototype.initTrees = function() {
+    $("#newTree").click(function() {
+        this.NewTree = new Tree(1);
+        this.NewTree.addBox(1);
+    });
+}
 
 
 
