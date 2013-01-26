@@ -5,6 +5,74 @@ body {
 	position: relative;
 }
 
+#canvas {
+	
+	background-color:blue;
+	position: fixed;
+	bottom: 0;
+}
+
+#wrapper {
+	padding:0;
+	position: relative;
+}
+
+.button {
+	background-color: #404040;
+	color: #fff;
+	box-sizing:border-box;
+	position: fixed;
+	width: 120px;
+	border: none;
+	border-radius: 2px;
+	font-size: 16px;
+	text-transform: uppercase;
+	opacity: 0.75;
+	padding: 10px;
+	text-align: center;
+}
+
+#edit_mode_button {
+	left: 10px;
+	top: 10px;
+
+}
+
+#view_mode_button {
+	left: 140px;
+	top: 10px;
+}
+
+.rectangle {
+	background-color: #fff;
+	height: 100px;
+	z-index: 100;
+	position: absolute;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border-style: solid;
+	border-width:1px;
+	border-top-width: 5px;
+	padding: 10px;
+
+	-moz-box-shadow: 4px 4px 7px 1px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 4px 4px 7px 1px rgba(0,0,0,0.3);
+	-o-box-shadow: 4px 4px 7px 1px rgba(0,0,0,0.3);
+	box-shadow: 4px 4px 7px 1px rgba(0,0,0,0.3);
+
+	font-size: 14px;
+
+
+	/*box-shadow: 1px 1px 2px 1px #404040;*/
+	/*top: 50px;
+	left:50px;*/
+}
+
+.box_text {
+	width: 100%;
+	position: relative;
+}
+
 #create_box {
 	width: 200px;
 	height: 100px;
@@ -12,6 +80,17 @@ body {
 	position: fixed;
 	bottom: 50%;
 	left: 50%;
+	color: #fff; 
+}
+
+#delete_box {
+	width: 200px;
+	height: 100px;
+	background-color: #000;
+	position: fixed;
+	bottom: 50%;
+	left: 70%;
+	color: #fff;
 }
 
 #content {
@@ -26,7 +105,7 @@ body {
 
 	opacity: 0.75;
 
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 
 	/* center */
@@ -44,13 +123,14 @@ body {
 }
 
 #menu {
+	z-index: 1000;
 	color: #fff;
 	background-color: #404040;
 	border-radius: 12px 0px 0px 12px;
 	box-sizing: border-box;
 	opacity: 0.8;
 	height: 350px;
-	width: 240px;
+	width: 225px;
 
 	position: fixed;
 	right: -200px;
@@ -61,6 +141,57 @@ body {
   	-moz-transition-duration: 0.3s;
  	-o-transition-duration: 0.3s;
   	transition-duration: 0.3s;
+}
+
+#ridges {
+	top: 50%;
+	position: absolute;
+	margin-top: -10px;
+	margin-left: 10px;
+}
+
+#menu_options li:hover {
+	color: #8db65f;
+}
+
+#menu_options {
+	padding-left: 25px;
+	padding-right: 25px;
+	position: absolute;
+	width: 175px;
+	padding-top: 25px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 80%;
+}
+
+#menu_options ul {
+	padding-top: 10px;
+	text-align: left;
+	
+	/*position: absolute;*/
+	
+}
+
+#menu_options img {
+	margin-right: 20px;
+}
+
+#menu_options li {
+	text-align: left;
+	padding-top: -5px;
+	padding-left: 25px;
+	padding-bottom: 7px;
+	line-height: 0px;
+}
+
+.menu_text {
+	position: relative;
+	top: -12px;
+}
+
+#menu_header {
+	font-size: 20px;
 }
 
 #menu:hover {

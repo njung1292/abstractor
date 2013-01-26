@@ -10,7 +10,24 @@
 </head>
 <body>
 
+	
 	<div id="canvas"></div>
+
+	<div class="modes" id="splash">
+
+ 		<article id="content"><p>Abstractor is a web app written in JavaScript that facilitates the explanation of multi-layered concepts and objects.</p></article>
+ 	</div>
+
+ 	<div class="modes" id="edit">
+ 		<article id="content"><p>Edit mode</p></article>
+ 	</div>
+
+ 	<div class="modes" id="view">
+ 		<article id="content"><p>View mode</p></article>
+ 	</div>
+
+	<div class="button" id="edit_mode_button">Edit Mode</div>
+	<div class="button" id="view_mode_button">View Mode</div>
 
 	<script type="text/javascript">
         window.onload = function(){
@@ -18,12 +35,56 @@
         }
     </script>
 
-   <!--  <canvas id="myCanvas" style="display:block; margin-left: auto; margin-right: auto;"></canvas>
- -->
- 	<button id="create_box">Create Box</button>
 
-	<article id="content"><p>Abstractor is a web app written in JavaScript that facilitates the explanation of multi-layered concepts and objects.</p></article>
-	<aside id="menu"><p>Menu</p></aside> 
+
+
+
+
+ 	
+
+
+	
+
+
+
+
+	<aside id="menu">
+		<div id="ridges"><img src="icons/ridges.png"></div>
+		<div id="menu_options"><span id="menu_header">Menu</span>
+			<hr>
+			<ul>
+				<li id="new_box">
+					<img src="icons/new_box.png">
+					<span class="menu_text">New Box</span>
+				</li>
+				<li id="new_aside">
+					<img src="icons/ribbon_tail.png">
+					<span class="menu_text">Extend</span>
+				</li>
+				<li id="edit_text">
+					<img src="icons/T_sidemenu.png">
+					<span class="menu_text">Edit Text</span>
+				</li>
+				<li id="new_link">
+					<img src="icons/connect.png">
+					<span class="menu_text">Connect</span>
+				</li>
+
+				<hr>
+
+				<li id="get_link">
+					<img src="icons/get_link.png">
+					<span class="menu_text">Get Link</span>
+				</li>
+				<li id="expand_all">
+					<img src="icons/expand_all.png">
+					<span class="menu_text">Expand All</span>
+				</li>
+			</ul>
+		</div>
+
+
+	</aside> 
 
 	<!-- <div class="mode" id="view">View</div>
 	<div class="mode" id="edit">Edit
@@ -40,7 +101,7 @@
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/kinetic-v4.3.1.js"></script>
+<!-- <script type="text/javascript" src="js/kinetic-v4.3.1.js"></script> -->
 <script type="text/javascript" src="js/Trees.js"></script>
 <script type="text/javascript" src="js/EditMode.js"></script>
 <script type="text/javascript" src="js/VisualBox.js"></script>
