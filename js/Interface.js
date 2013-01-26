@@ -3,10 +3,10 @@ var red = "#dc423c";
 var yellow = "#eecb25";
 var purple = "#7d2a44";
 var gray = "#515151";
-var color_array = [red, yellow, gray, blue, purple];
+var color_array = [red, blue, yellow, gray, purple];
 
 Box.prototype.color = function() {
-    this.colorField = color_array[(this.level % 5)];
+    this.colorField = color_array[(this.id % 5)];
     return this.colorField;
 }
 
@@ -73,5 +73,38 @@ Box.prototype.exp_collapse = function(){
 	}
 	this.clicked = -this.clicked; //toggle back//
 }
+
+
+/* NOTE: ADAPTED FROM http://gapjumper.com/research/lines.html */
+function createLine(x1, y1, x2, y2)
+	{
+		if (x2 < x1)
+		{
+			var temp = x1;
+			x1 = x2;
+			x2 = temp;
+			temp = y1;
+			y1 = y2;
+			y2 = temp;
+		}
+		var line = document.createElement("div");
+		line.className = "line";
+		var length = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+		line.style.width = length + "px";
+
+		
+	
+			var angle = Math.atan((y2-y1)/(x2-x1));
+			line.style.top = y1 + 0.5*length*Math.sin(angle) + "px";
+			line.style.left = x1 - 0.5*length*(1 - Math.cos(angle)) + "px";
+			line.style.MozTransform = line.style.WebkitTransform = line.style.OTransform= "rotate(" + angle + "rad)";
+	
+		return line;
+	}
+
+var Line.prototype.newLine = function(x1,y1,x2,y2) {
+	$("#canvas").append(createLine(x1,y1,x2,y2));
+}
+
 
 

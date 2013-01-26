@@ -6,6 +6,7 @@ AbstractorApp.prototype.setUp = function(){
     this.ajaxSetUp();
     this.initPages();
     this.editMode = false;
+    this.linkMode = false; 
 
 
 }
@@ -107,6 +108,8 @@ AbstractorApp.prototype.initPages = function() {
     $("#splash").show();
     this.currentMode = "splash";
 
+    $("#edit_mode_button");
+
     $("#edit_mode_button").click(function() {
         $(".modes").hide();
         $("#edit").show();
@@ -153,7 +156,13 @@ AbstractorApp.prototype.initStage = function() {
     this.y = 50 + $("#content").height();
     this.width = $(window).width()/5;
     this.height = 100;
+    this.widthWhole = $(window).width();
     
+    $("#canvas").append(createLine(0,-1000,4000,200));
+
+    $("#edit_mode_button").click(function() {
+        createBox(app.NewTree,0,0,app.widthWhole,175,app);
+    });
 
     $("#new_box").click(function() {
         app.editMode = true;
@@ -161,7 +170,6 @@ AbstractorApp.prototype.initStage = function() {
             <span class="menu_text">Edit Text</span>')
         createBox(app.NewTree, app.x, app.y, app.width, app.height, app);
         app.x += 20 + app.width;
-
     });
 
     $("#edit_text").click(function() {
@@ -175,6 +183,12 @@ AbstractorApp.prototype.initStage = function() {
             <span class="menu_text">Edit Text</span>')
         }
        
+    });
+
+    $("#new_link").click(function() {
+        if (app.linkMode) {
+            app.
+        }
     });
 
 

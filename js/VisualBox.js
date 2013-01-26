@@ -18,17 +18,31 @@ VisualBox.prototype.initGraphics = function() {
 }
 
 VisualBox.prototype.graphics = function(isEdit, contents) {
+
+	window.visbox = this;
+	var vis = window.visbox;
 	if (isEdit) {
 		$("#"+this.id).replaceWith("<textarea id='"+this.id+"' class='rectangle'>"+contents+"</textarea>");
 	}
+
 	else { //is div
 		$("#"+this.id).replaceWith("<div id='"+this.id+"' class='rectangle'>"+contents+"</div>");
+		$("#"+this.id).draggable( {stop: function( event, ui ) {} });
+		$("#"+this.id).on( "dragstop", function(event, ui) { 
+			vis.x = ui.offset.left;
+			vis.y = $(window).height() - ui.offset.top - vis.height;
+			console.log(vis.x);
+		});
+
+
+
 	}
 	$("#"+this.id).css("left",this.x);
 	$("#"+this.id).css("bottom",this.y);
 	$("#"+this.id).css("width",this.width);
 	$("#"+this.id).css("height",this.height);
 	$("#"+this.id).css("border-color",this.color);
+
 	console.log('lalalal');
 }
 
