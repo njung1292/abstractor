@@ -94,7 +94,10 @@ AbstractorApp.prototype.ajaxSetUp = function() {
 AbstractorApp.prototype.initPages = function() {
     window.AbstractorApp = this;
     var otherThis = window.AbstractorApp;
+
     this.initTrees();
+    this.initStage();
+    
     this.initEditMode();
 
     /*
@@ -123,8 +126,6 @@ AbstractorApp.prototype.initPages = function() {
 }
 
 
-
-
 AbstractorApp.prototype.initEditMode = function() {
     this.EditMode = new EditMode ({
                                 'deleteAllDiagrams': this.deleteAllDiagrams,
@@ -143,6 +144,42 @@ AbstractorApp.prototype.initTrees = function() {
         this.NewTree.addBox(1);
     });
 }
+
+
+AbstractorApp.prototype.initStage = function() {
+    window.AbstractorApp = this;
+    var app = window.AbstractorApp;
+
+    this.stage = new Kinetic.Stage({
+      container: 'canvas',
+      width: $(window).width(), 
+      height: $(window).height() - 4 //this is a hack
+    });
+
+
+
+    $("#create_box").click(function() {
+        
+        /* this creates the abstract box that holds data */
+        // app.NewTree.addBox(2);
+        /* this creates the graphic and event thing for the box */
+        var visualBox = new VisualBox(2); 
+        /* this renders the box by adding it to the stage */
+        app.stage.add(visualBox.layer);
+
+        alert("woasdklfj");
+    });
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
