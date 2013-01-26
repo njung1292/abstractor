@@ -1,0 +1,28 @@
+body {
+
+}
+
+.mode {
+	box-sizing: border-box;
+	background-color: #ccc;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	text-align: center;
+
+	font-family: "Helvetica Neue";
+	font-size: 48px;
+
+
+}
+
+#view {
+	margin-top:100px;
+	margin-bottom: 20px;
+
+}
+
+#edit {
+
+}
