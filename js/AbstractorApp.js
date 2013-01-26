@@ -98,7 +98,6 @@ AbstractorApp.prototype.initPages = function() {
 
     this.initTrees();
     this.initStage();
-    
     this.initEditMode();
 
     $(".modes").hide();
@@ -116,34 +115,6 @@ AbstractorApp.prototype.initPages = function() {
         $("#view").show();
         this.currentMode = "view";
     });
-
-    // $(".button").click(function() {
-    //     console.log("asdfk");
-    // });
-
-
-    /*
-
-    $('#current_view').on("click",".back", function() {
-
-        //HOME BUTTONS
-        if($(this).attr("id") === 'drivers_perspective_button') {
-           $(this).closest(".page").removeClass("shown_html").addClass("hidden_html");
-            setTimeout(function() {
-                    $("#drivers_perspective").addClass("shown_html");
-            },0);
-
-        }
-
-        if($(this).attr("id") === 'mechanics_perspective_button') {
-            $(this).closest(".page").removeClass("shown_html").addClass("hidden_html");
-            setTimeout(function() {
-                    $("#mechanics_perspective").addClass("shown_html");
-            },0);
-        }
-    });
-
-*/
 
 }
 
@@ -192,7 +163,7 @@ AbstractorApp.prototype.initStage = function() {
 
 
         var color = "#"
-        $("#"+this.currentMode).append("<textarea id='"+app.rectID+"' class='rectangle'></textarea>");
+        $("#canvas").append("<textarea id='"+app.rectID+"' class='rectangle'></textarea>");
         $("#"+app.rectID).css("left",app.x);
         $("#"+app.rectID).css("bottom",app.y);
         $("#"+app.rectID).css("width",app.stage.getWidth()/5);
