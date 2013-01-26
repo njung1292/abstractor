@@ -139,10 +139,12 @@ AbstractorApp.prototype.initEditMode = function() {
 }
 
 AbstractorApp.prototype.initTrees = function() {
-    $("#newTree").click(function() {
+    this.NewTree = new Tree(1);
+
+    /* $("#newTree").click(function() {
         this.NewTree = new Tree(1);
         this.NewTree.addBox(1);
-    });
+    }); */
 }
 
 
@@ -159,15 +161,7 @@ AbstractorApp.prototype.initStage = function() {
 
 
     $("#create_box").click(function() {
-        
-        /* this creates the abstract box that holds data */
-        // app.NewTree.addBox(2);
-        /* this creates the graphic and event thing for the box */
-        var visualBox = new VisualBox(2); 
-        /* this renders the box by adding it to the stage */
-        app.stage.add(visualBox.layer);
-
-        alert("woasdklfj");
+        createBox(app.NewTree, app.stage)
     });
 
 }

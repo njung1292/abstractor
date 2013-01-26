@@ -26,6 +26,7 @@ var Tree = function(treeID) {
 		src.links.push(link); //insert link to source links array
 		dst.links.push(link); //to dest links array
 		this.links.push(link); // tree links array
+		return link;
 	}
 	
 	/* deleteLink: removes a link and its references*/
@@ -39,6 +40,7 @@ var Tree = function(treeID) {
 	this.addPhrase = function(box, start, end) {
 		var phrase = new Phrase(box, start, end);
 		box.phrases.push(phrase); //insert
+		return phrase;
 	}
 	
 	/* deletePhrase: removes a phrase from a box and may delete link */
@@ -54,6 +56,7 @@ var Tree = function(treeID) {
 	this.addBox = function(boxLevel) {
 		var box = new Box(boxLevel);
 		this.boxes.push(box); //insert at end
+		return box;
 	}
 	
 	/* deleteBox: removes a given box from the box array 
