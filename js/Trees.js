@@ -5,9 +5,9 @@ var TANGENT = 1;
 /* utility */
 /* Array.remove: removes a value*/
 Array.prototype.remove = function(value) {
-	var i = indexOf(value);
+	var i = this.indexOf(value);
 	if (i >= 0 && i < this.length) //in bound
-		this.splice(indexOf(value), 1);
+		this.splice(i, 1);
 }
 
 /* defining the data structure elements. All IDs should correspond to
@@ -35,27 +35,9 @@ var Tree = function(treeID) {
 		this.links.remove(link); //from tree
 	}
 	
-	/* newBox: creates a new empty box at a given level
-	 *  and places it at end of box array */
-	this.addBox = function(boxLevel) {
-		var box = new Box(boxLevel);
-		this.boxes.push(box); //insert at end
-	}
-	//make a new starting box at level 0, now that the function is defined
-	this.addBox(0);
-	
-	/* deleteBox: removes a given box from the box array 
-	 * may remove a link */
-	this.deleteBox = function(box) {
-		this.boxes.remove(box); //remove from box list
-		for (var i = box.links.length - 1; i >= 0; i--) { //remove links
-			this.deleteLink(box.links[i]);
-		}
-	}
-
 	/* addPhrase: adds a phrase to a box */
 	this.addPhrase = function(box, start, end) {
-		var phrase = new Phrase(this, start, end);
+		var phrase = new Phrase(box, start, end);
 		box.phrases.push(phrase); //insert
 	}
 	
@@ -64,6 +46,25 @@ var Tree = function(treeID) {
 		phrase.box.phrases.remove(phrase); //remove from box list
 		for (var i = phrase.links.length - 1; i >= 0; i--) { //remove links
 			this.deleteLink(phrase.links[i]);
+		}
+	}
+
+	/* addBox: creates a new empty box at a given level
+	 *  and places it at end of box array */
+	this.addBox = function(boxLevel) {
+		var box = new Box(boxLevel);
+		this.boxes.push(box); //insert at end
+	}
+	
+	/* deleteBox: removes a given box from the box array 
+	 * may remove a link */
+	this.deleteBox = function(box) {
+		this.boxes.remove(box); //remove from box list
+		for (var i = box.links.length - 1; i >= 0; i--) { //remove links
+			this.deleteLink(box.links[i]);
+		}
+		for (var i = box.phrases.length - 1; i >= 0; i--) { //remove phrases
+			this.deletePhrase(box.phrases[i]);
 		}
 	}
 	
@@ -76,6 +77,7 @@ var Box = function(boxLevel) {
 	this.phrases = new Array();
 	this.links = new Array();
 	this.tangent = null; //if non-null, references a Link	
+	
 }
 
 /* Phrase: an element inside a box (the parent) 
