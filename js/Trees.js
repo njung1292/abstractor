@@ -18,6 +18,7 @@ var Tree = function(treeID) {
 	this.id = treeID;
 	this.boxes = new Array();
 	this.links = new Array();
+	this.topBox = 0; //highest box ID
 	this.topLevel = 0; //the level of highest level box
 	
 	/* addLink: links two boxes/phrases and makes references to itself */
@@ -56,6 +57,7 @@ var Tree = function(treeID) {
 	this.addBox = function(boxLevel) {
 		var box = new Box(boxLevel);
 		this.boxes.push(box); //insert at end
+		this.box.id = this.topBox++;
 		return box;
 	}
 	
@@ -75,12 +77,40 @@ var Tree = function(treeID) {
 
 /* Box: each node in the tree, containing phrases and being linked by Links */
 var Box = function(boxLevel) {
+	this.id;
 	this.level = boxLevel; //should always be lower than box above
 	this.text = "";
 	this.phrases = new Array();
 	this.links = new Array();
 	this.tangent = null; //if non-null, references a Link	
 	
+	/* get_array: returns an array of all children boxes and links
+	 * including the boxes with the phrases that this box is linked to */
+	this.get_array = function(){
+		var link;
+		var parent;
+		var child;
+		var children { 
+			boxes:[] ,
+			links:[]
+		};
+		for (var i = 0; i < this.links.length; i++) {
+			link = this.links[i];
+			parent = link.src;
+			if (parent instanceof Phrase)
+				parent = parent.box;
+			child = link.dst;
+			if (parent == this) {//this box is parent
+				if (child instanceof Phrase)
+					child = child.box;
+				children.boxes.push(child); //push in child box
+				children.links.push(link); //push in corresponding link
+			}
+		}
+		return children;
+	}
+	
+	}
 }
 
 /* Phrase: an element inside a box (the parent) 
