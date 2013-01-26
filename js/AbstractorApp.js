@@ -5,6 +5,7 @@ var AbstractorApp = function(){
 AbstractorApp.prototype.setUp = function(){
     this.ajaxSetUp();
     this.initPages();
+
 }
 
 AbstractorApp.prototype.ajaxSetUp = function() {
@@ -100,6 +101,27 @@ AbstractorApp.prototype.initPages = function() {
     
     this.initEditMode();
 
+    $(".modes").hide();
+    $("#splash").show();
+    this.currentMode = "splash";
+
+    $("#edit_mode_button").click(function() {
+        $(".modes").hide();
+        $("#edit").show();
+        this.currentMode = "edit";
+    });
+
+    $("#view_mode_button").click(function() {
+        $(".modes").hide();
+        $("#view").show();
+        this.currentMode = "view";
+    });
+
+    // $(".button").click(function() {
+    //     console.log("asdfk");
+    // });
+
+
     /*
 
     $('#current_view').on("click",".back", function() {
@@ -158,11 +180,47 @@ AbstractorApp.prototype.initStage = function() {
       height: $(window).height() - 4 //this is a hack
     });
 
+    /* when click on new box menu item, a box (abstract and graphic) is created */
+    // $("#new_box").click(function() {
+    //     createBox(app.NewTree, app.stage);
+    // });
+    this.rectID = 0;
+    this.x = 50;
+    this.y = 50 + $("#content").height();
+    $("#new_box").click(function() {
 
 
-    $("#create_box").click(function() {
-        createBox(app.NewTree, app.stage)
+
+        var color = "#"
+        $("#"+this.currentMode).append("<textarea id='"+app.rectID+"' class='rectangle'></textarea>");
+        $("#"+app.rectID).css("left",app.x);
+        $("#"+app.rectID).css("bottom",app.y);
+        $("#"+app.rectID).css("width",app.stage.getWidth()/5);
+        $("#"+app.rectID).css("border-color","#dc423c");
+        app.rectID++;
+        app.x += 20 + app.stage.getWidth()/5;
+
+        // createBox(app.NewTree, app.stage, app.color);
+
+        // $("#"+app.rectID).append('<form class="box_text">'
+        //     +'<input type="text" name="box_text"'
+        //     +' id='+app.rectID+' class="active" value="" />'
+        //     +'<span class="box_text" id="bx=box_text>+</span></form>');
+        // $(".box_text > #"+app.rectID).css("width",100);
+
+
+        // $("#canvas").append("<div class='rectangle' id="+app.rectID+"></div>");
+        // $("#"+app.rectID).attr("width",app.stage.getWidth()/4);
+        // app.rectID++;
     });
+
+
+    /*
+        on highlight (function() {
+            createBox()
+            createLink(midpoint of start and end points)
+        });
+*/
 
 }
 
