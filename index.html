@@ -4,9 +4,13 @@
 	<meta charset="UTF-8">
 	<link href="css/css-reset.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<title>Abstractor</title>
 </head>
 <body>
+
+	<div id="canvas"></div>
 
 	<script type="text/javascript">
         window.onload = function(){
@@ -14,14 +18,21 @@
         }
     </script>
 
-	<div class="mode" id="view">View</div>
+   <!--  <canvas id="myCanvas" style="display:block; margin-left: auto; margin-right: auto;"></canvas>
+ -->
+ 	<div id="blah">Hihihi</div>
+
+	<article id="content"><p>Abstractor is a web app written in JavaScript that facilitates the explanation of multi-layered concepts and objects.</p></article>
+	<aside id="menu"><p>Menu</p></aside> 
+
+	<!-- <div class="mode" id="view">View</div>
 	<div class="mode" id="edit">Edit
 		<form>
 			<textarea rows="10" cols="50" id="editArea"></textarea>
 			<button class="button" id="submit">Submit</button>
 			<button class="button" id="delete">Delete</button>
 		</form>
-	</div>
+	</div> -->
 
 
 
@@ -29,6 +40,8 @@
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/kinetic-v4.3.1.js"></script>
+<script type="text/javascript" src="js/stage.js"></script>
 <script type="text/javascript" src="js/EditMode.js"></script>
 <script type="text/javascript" src="js/AbstractorApp.js"></script>
 </html>

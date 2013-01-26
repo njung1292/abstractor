@@ -1,12 +1,99 @@
 body {
-	background-color: 
-	font-family: , "Helvetica Neue", sans-serif;
+	background-color: #8db65f;
+	font-family: "PT Sans", "Helvetica Neue", sans-serif;
+	color: #000;
+	position: relative;
+}
+
+#blah {
+	width: 20px;
+	height: 200px;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	background-color: red;
+}
+#content {
+	/*background-color: #bbd39f;*/
+	background-color: #fff;
+	color: #404040;
+	font-size: 20px;
+	width: 100%;
+	text-align: center;
+	height: 175px;
+	box-sizing: border-box;
+
+	opacity: 0.75;
+
+	position: absolute;
+	bottom: 0px;
+
+	/* center */
+	/*top: 50%;
+	margin-top: -100px;*/
+
+	display: table; 
+}
+
+
+#content p {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
+#menu {
+	color: #fff;
+	background-color: #404040;
+	border-radius: 12px 0px 0px 12px;
+	box-sizing: border-box;
+	opacity: 0.8;
+	height: 350px;
+	width: 240px;
+
+	position: fixed;
+	right: -200px;
+	top: 50%;
+	margin-top: -150px;
+
+	-webkit-transition-duration: 0.3s;
+  	-moz-transition-duration: 0.3s;
+ 	-o-transition-duration: 0.3s;
+  	transition-duration: 0.3s;
+}
+
+#menu:hover {
+	right: 0px;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+#menu p {
+	position: absolute;
+	bottom: 30px;
+	transform:rotate(-90deg);
+  	-ms-transform:rotate(-90deg); /* IE 9 */
+  	-moz-transform:rotate(-90deg); /* Firefox */
+  	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
+  	-o-transform:rotate(-90deg); /* Opera */
 }
 
 
 
-
-
+/*#menu_out:hover #menu_in {
+  right: 0;
+}*/
+/*#menu_in {
+	position: fixed;
+	top: 50%;
+	right: -250px;
+	-webkit-transition-duration: 0.3s;
+  	-moz-transition-duration: 0.3s;
+ 	-o-transition-duration: 0.3s;
+  	transition-duration: 0.3s;
+}*/
 
 
 /*.mode {
