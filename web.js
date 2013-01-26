@@ -17,7 +17,7 @@ var allowCrossDomain = function(req, res, next) {
 }
 
 //Database
-mongoose.connect('mongodb://heroku_app10763577:7fqicugtlm3lpu8rndhmutn4el@ds047307.mongolab.com:47307/heroku_app10763577');
+mongoose.connect('mongodb://heroku_app11310500:o4jh1dki7if1b8cp8eq0j1vklh@ds049347.mongolab.com:49347/heroku_app11310500');
 var Schema = mongoose.Schema;
 
 var Diagram = new Schema({
