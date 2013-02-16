@@ -100,6 +100,19 @@ VisualBox.prototype.events = function(app) {
 
 	// });
 
+
+
+
+
+	// $("#"+vis.id).hover(function() {
+	// 	$("#"+vis.id).append("<span style='position:relative;right:-50px;top:-10px;background-color:red; z-index:1000000;'>Hiii</span>");
+	// },
+	// function() {
+	// 	$("#"+vis.id).css("background-color","#fff");
+	// }
+
+	// );
+
 }
 
 

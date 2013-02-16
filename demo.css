@@ -1,0 +1,24 @@
+#container0 {
+	position: absolute;
+	left:300px;
+	top: 100px;
+	margin: 0px;
+	background-color: #fff;
+	border: solid #000 2px;
+	width: 200px;
+	height: 100px;
+	display: inline;
+	opacity: 0.5;
+}
+
+#container1 {
+	position: absolute;
+	left: 300px;
+	bottom: 100px;
+	background-color: #fff;
+	border: solid #000 2px;
+	width: 200px;
+	height: 100px;
+	display: inline;
+	opacity: 0.5;
+}

@@ -6,8 +6,6 @@ body {
 }
 
 #canvas {
-	
-	background-color:blue;
 	position: fixed;
 	bottom: 0;
 }
@@ -67,6 +65,10 @@ body {
 	/*top: 50px;
 	left:50px;*/
 }
+
+/*.rectangle:hover {
+	background-color: blue;
+}*/
 
 .box_text {
 	width: 100%;

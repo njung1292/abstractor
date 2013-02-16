@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+
+	<link href="demo.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/jsPlumb.js"></script>
+
+	<script type="text/javascript">
+		jsPlumb.bind("ready",function() {
+
+			jsPlumb.Defaults.Container = $("body");
+			jsPlumb.DefaultDragOptions = { cursor: "pointer", zIndex: 2000 };
+			var e0 = jsPlumb.addEndpoint("c0"),
+				e1 = jsPlumb.addEndpoint("c1");
+
+			jsPlumb.connect({ source:e0, target:e1,
+				anchors: ["RightMiddle", "TopCenter"],
+
+			});
+
+			jsPlumb.draggable("container0");
+			jsPlumb.draggable("container1");
+		});
+
+
+		
+
+	</script>
+
+</head>
+<body>
+
+	<div id="container0"><span id="c0">Lalalal</span></div>
+	<div id="container1"><span id="c1">huehuehuehuehue</span></div>
+
+
+</body>
+
+</html>
+
+
+
+

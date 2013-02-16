@@ -152,12 +152,19 @@ AbstractorApp.prototype.initStage = function() {
     var app = window.AbstractorApp;
 
 
+
+
     this.perRow = 0;
     this.x = 50;
     this.y = 50 + $("#content").height();
     this.width = $(window).width()/5;
     this.height = 100;
     this.widthWhole = $(window).width();
+
+    this.windowWidth = $(window).width();
+    this.windowHeight = $(window).height();
+
+
     
     // $("#canvas").append(newLine(0,-1000,4000,200));
 
@@ -167,8 +174,7 @@ AbstractorApp.prototype.initStage = function() {
 
     $("#new_box").click(function() {
         app.editMode = true;
-        $("#edit_text").html('<img src="icons/T.png">\
-            <span class="menu_text">Edit Text</span>')
+        $("#edit_text_img").attr("src", "icons/pikachu.png");
         createBox(app.NewTree, app.x, app.y, app.width, app.height, app);
         if (app.perRow < 3) {
             app.x += 20 + app.width;
@@ -183,12 +189,10 @@ AbstractorApp.prototype.initStage = function() {
     $("#edit_text").click(function() {
         if (app.editMode) {
             app.editMode = false;
-            $("#edit_text").html('<img src="icons/T_sidemenu.png">\
-            <span class="menu_text">Edit Text</span>');
+            $("#edit_text_img").attr("src", "icons/T_sidemenu.png");
         } else {
             app.editMode = true;
-            $("#edit_text").html('<img src="icons/pikachu.png">\
-            <span class="menu_text">Edit Text</span>');
+            $("#edit_text_img").attr("src", "icons/pikachu.png");
         }
        
     });
@@ -196,12 +200,10 @@ AbstractorApp.prototype.initStage = function() {
     $("#new_link").click(function() {
         if (app.linkMode) {
             app.linkMode = false;
-            $("#new_link").html('<img src="icons/connect.png">\
-            <span class="menu_text">New Link</span>');
+            $("#new_link_img").attr("src", "icons/connect.png");;
         } else {
             app.linkMode = true;
-            $("#new_link").html('<img src="icons/dotted_connect.png">\
-            <span class="menu_text">New Link</span>');
+            $("#new_link_img").attr("src", "icons/dotted_connect.png");
         }
     });
 

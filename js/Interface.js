@@ -104,17 +104,17 @@ function createLine(tree,x1, y1, x2, y2, id)
 	}
 
 
-Line.prototype.newLine = function(tree,x1,y1,x2,y2,id) {
-	this.x1 = x1;
-	this.x2 = x2;
-	this.y1 = y1;
-	this.y2 = y2;
-	this.id = id;
+// Line.prototype.newLine = function(tree,x1,y1,x2,y2,id) {
+// 	this.x1 = x1;
+// 	this.x2 = x2;
+// 	this.y1 = y1;
+// 	this.y2 = y2;
+// 	this.id = id;
 
-	// var link = tree.addLink()
+// 	// var link = tree.addLink()
 
-	$("#canvas").append(createLine(x1,y1,x2,y2,id));
-}
+// 	$("#canvas").append(createLine(x1,y1,x2,y2,id));
+// }
 
 
 
