@@ -41,6 +41,25 @@ body {
 	top: 10px;
 }
 
+#container0 {
+	position: absolute;
+	left: 500px;
+	top: 100px;
+	width: 250px;
+	border-color: #600033; /*dark color*/
+	text-align: center;
+}
+
+#container1 {
+	position: absolute;
+	left: 500px;
+	top: 300px;
+	width: 250px;
+	border-color: #ff9090; /*light color*/
+	text-align: center;
+}
+
+
 .rectangle {
 	background-color: #fff;
 	height: 100px;

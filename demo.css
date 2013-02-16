@@ -7,7 +7,7 @@
 	border: solid #000 2px;
 	width: 200px;
 	height: 100px;
-	display: inline;
+	/*display: inline;*/
 	opacity: 0.5;
 }
 
@@ -19,6 +19,6 @@
 	border: solid #000 2px;
 	width: 200px;
 	height: 100px;
-	display: inline;
+	/*display: inline;*/
 	opacity: 0.5;
 }
