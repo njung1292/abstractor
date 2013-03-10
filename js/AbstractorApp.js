@@ -127,6 +127,13 @@ AbstractorApp.prototype.initPages = function() {
 }
 
 AbstractorApp.prototype.initJSPlumb = function() {
+
+            // var div = document.getElementById ("container0");
+
+            // (div.contentEditable == "true") {
+            //     div.contentEditable = "false";
+
+
     jsPlumb.bind("ready",function() {
 
         var container0Clicked = false;
@@ -135,7 +142,30 @@ AbstractorApp.prototype.initJSPlumb = function() {
         var e1;
 
 
-        $("#container0").click(function() {
+        //var connectionOpened = false;
+ 
+        //$(".rectangle").click(function() {
+
+            /* 
+            To dooo...
+           var boxId = $(this).attr("id");
+
+           if (connectionOpened === false) {
+
+           } else {
+
+           }
+
+            var phrases = $(this).children();
+            var toConnects = getToConnects(boxId);
+            for (var i = 0; i < toConnects.length; i++) {
+                if (i)
+            }
+        */
+
+
+        // if ($(this).attr("id"))
+         $("#container0").click(function() {
             if (container0Clicked === false && container1Clicked === false) {
                 container0Clicked = true;
                 jsPlumb.Defaults.Container = $("body");
@@ -154,7 +184,8 @@ AbstractorApp.prototype.initJSPlumb = function() {
                 jsPlumb.draggable("container1");
                 console.log("clicked on container 0");
             }
-        });
+         });
+  //      });
 
 
         $("#container1").click(function() {

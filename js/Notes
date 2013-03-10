@@ -1,0 +1,92 @@
+Box1
+	boxId = 1
+
+
+
+Box2
+	boxId = 2
+
+
+
+
+
+
+
+
+
+rectangle on click:
+	
+	id = get rectangle id
+
+	e_boxId = new endpoint
+
+
+
+$(.rectangle).click(function() {
+	var id = $(this).attr("id");
+	var allSpans = $(this).children();
+
+
+
+	for (var i = 0; i < allSpans.length; i++) {
+		var spanId = allSpans[i].attr("id");
+	}
+
+
+});
+
+
+<div class="rectangle" id="boxID1">
+
+	<span class="phrase" id="spanID1">
+
+	</span>
+
+	<span class="phrase" id="spanID2">
+	</span>
+
+
+</div>
+
+
+
+
+
+newString += words[i]
+
+if (i != sdlfask.length -1) {
+newString += " "
+
+
+
+
+
+
+
+var spans = $("#boxid").children(".phrase");
+
+for ()
+
+
+
+words = new array
+if (wordsphrases[i].hasClass("word")) {
+	words += wordsphrases[i];
+} else if (wordsphrases[i].hasClass("phrase")) {
+	var subSpans = wordsphrases[i].children("word");
+	for (var i = 0; i < subSpans.length; i++) {
+		words += subSpans[i];
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
